@@ -11,12 +11,16 @@ connectDB();
 
 const app = express();
 
-const corsOptions = {
+
+if (!process.env.CLIENT_URL) {
+    console.error("FATAL ERROR: CLIENT_URL is not set in the environment variables.");
+}
+
+
+app.use(cors({
   origin: process.env.CLIENT_URL,
   optionsSuccessStatus: 200 
-};
-app.use(cors(corsOptions));
-
+}));
 
 app.use(express.json());
 
