@@ -26,7 +26,9 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/todolists', todoRoutes);
-
+app.get('/test',(req,res)=>{
+      res.send("Hello world")
+})
 
 const PORT = process.env.PORT || 5001;
 
